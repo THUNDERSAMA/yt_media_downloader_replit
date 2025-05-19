@@ -11,9 +11,10 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-const ytDlpWrap = new YtDlpWrap(path.join(__dirname, 'yt-dlp')); // Linux binary
+const ytDlpWrap = new YtDlpWrap('./yt-dlp');
+ // Linux binary
 
-const FFMPEG_PATH = path.join(__dirname, 'ffmpeg'); // Linux binary
+const FFMPEG_PATH = './ffmpeg'; // Linux binary
 
 app.post('/download', async (req, res) => {
   const { url, format } = req.body;
